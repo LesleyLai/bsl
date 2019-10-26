@@ -21,7 +21,7 @@ int main()
                       let specular = color3(0.3) * spec;
                       (ambient + diffuse + specular, 1.0)
                   })"};
-  beyond::scanner scanner{std::string{s}};
+  beyond::Scanner scanner{std::string{s}};
 
   for (const auto token : scanner) {
     std::cout << token << '\n';

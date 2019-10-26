@@ -1,5 +1,5 @@
-#ifndef BEYOND_SCANNER_HPP
-#define BEYOND_SCANNER_HPP
+#ifndef BEYOND_SHADING_LANGUAGE_SCANNER_HPP
+#define BEYOND_SHADING_LANGUAGE_SCANNER_HPP
 
 #include <cctype>
 #include <cstdlib>
@@ -106,7 +106,7 @@ constexpr bool operator==(token lhs, token rhs)
 }
 
 /// @brief The scanner scan the input string and output tokens
-struct scanner {
+struct Scanner {
   std::string text;
 
   struct iterator {
@@ -457,4 +457,4 @@ struct scanner {
 
 } // namespace beyond
 
-#endif // BEYOND_SCANNER_HPP
+#endif // BEYOND_SHADING_LANGUAGE_SCANNER_HPP

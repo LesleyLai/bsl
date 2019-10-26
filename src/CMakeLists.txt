@@ -1,4 +1,5 @@
 add_library(common
+    ast.hpp
     scanner.hpp
     scanner.cpp)
 target_link_libraries(common PRIVATE compiler_warnings)

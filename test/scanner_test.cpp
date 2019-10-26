@@ -4,7 +4,7 @@
 
 #include "../src/scanner.hpp"
 
-using beyond::scanner;
+using beyond::Scanner;
 using beyond::token;
 using beyond::token_type;
 
@@ -15,7 +15,7 @@ TEST_CASE("scanner", "[scanner]")
     const auto hello = "hello";
     THEN("Scan as an identifier")
     {
-      scanner s{hello};
+      Scanner s{hello};
       REQUIRE(s.begin() != s.end());
       REQUIRE(s.begin()->type == token_type::identifier);
     }
@@ -27,7 +27,7 @@ TEST_CASE("scanner", "[scanner]")
         R"(and async await case class def else extern false for if let not
         or return this true type () uniform unsafe variant)";
 
-    scanner s{keywords};
+    Scanner s{keywords};
 
     WHEN("Scan the string")
     {
@@ -71,7 +71,7 @@ TEST_CASE("scanner", "[scanner]")
 
   SECTION("Ignore single line comments")
   {
-    scanner s{R"(// Hello world)"};
+    Scanner s{R"(// Hello world)"};
     REQUIRE(s.begin() == s.end());
   }
 }
@@ -80,7 +80,7 @@ TEST_CASE("Error handling of the scanner", "[scanner]")
 {
   GIVEN("A string contains unknown characters")
   {
-    scanner s{R"(let # = 3)"};
+    Scanner s{R"(let # = 3)"};
     WHEN("Scan the string")
     {
       THEN("Correct identify the error, but scan the remaining part correctly")
